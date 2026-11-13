@@ -1,1 +1,174 @@
 
+SENIOR FULL STACK DEVELOPER | INTERVIEW Q&A
+November 13, 2026 | Vijay Nimmagadda
+
+The questions are consolidated and the answers are edited for clarity. The
+coding example is a reconstruction of the approach discussed on the call.
+
+EXPERIENCE AND PROJECTS
+
+1. Can you introduce yourself and describe your current project?
+I’m a lead full-stack engineer with about 13 years of enterprise web
+development experience. I work primarily with React, TypeScript and JavaScript,
+with experience in design systems, accessibility, testing and API integration.
+At First Citizens Bank, I work on SVB Go Admin, building client enrollment,
+user management, access controls and reporting workflows.
+
+2. What is your frontend and backend experience?
+On the frontend, I build responsive, accessible React applications using
+HTML, CSS, JavaScript, TypeScript, state management and reusable components.
+My backend work includes REST API integration, SQL data support, API testing
+and troubleshooting. At First Citizens Bank, the React frontend integrates
+with Java-backed REST services. I also discussed Python frameworks, Docker and
+CI/CD during the screening.
+
+3. What were your last two applications, what did you contribute, and who
+   used them?
+First Citizens Bank: I worked primarily on the internal SVB Go Admin portal.
+I built React and TypeScript screens for enrollment, user access, reporting
+and transaction workflows, integrated verification and access-control flows
+with REST APIs, and supported releases.
+
+United Airlines: I worked on the public united.com platform, primarily its
+desktop web experience. I migrated legacy .NET screens to React in phases
+and delivered consumer features such as Miles Pooling and United Club Pass.
+I did not have a verified user count for either application.
+
+4. What onboarding and reporting features did you build personally?
+I built enrollment and user-management screens covering role-based access,
+verification and user updates. For reporting, I used reusable React components
+to build dynamic filters and downloadable results. I integrated REST APIs,
+handled errors and addressed accessibility.
+
+5. How do you handle validation on both the client and server?
+Client-side checks catch missing or invalid input early. When the API rejects
+a request, I map field-level errors to the corresponding fields and use a
+form-level message for general failures. I make feedback accessible and keep
+sensitive diagnostics out of messages shown to users.
+
+6. Have you worked directly with business stakeholders and offshore teams?
+Yes. I’ve worked with product owners, UX designers and senior stakeholders to
+clarify requirements, turn them into features and demo the results for
+feedback. At Visa and Capital Group, I worked with onshore and offshore teams
+and wrote Jira stories for offshore delivery.
+
+REACT AND JAVASCRIPT
+
+7. What is the difference between the real DOM and the virtual DOM?
+The real DOM is the browser’s live document tree. React reconciles the latest
+render output with the previous one, then commits the necessary updates to
+the real DOM.
+
+8. How many years have you worked with React?
+I said about 10 years during the call. Verify the number against project dates
+before using it again. An AI-generated entry in the export suggested eight.
+
+9. How do useState and useEffect differ?
+useState stores values that change, such as form inputs or loading flags.
+useEffect synchronizes a component with an external system, such as a
+subscription or timer. Return a cleanup function when the effect sets up a
+resource that needs to be released.
+
+10. When would you use a controlled or uncontrolled input?
+A controlled input uses React state for its value. I use it for live validation
+or dynamic behavior, such as instant search. An uncontrolled input keeps its
+value in the DOM. I can read it on submit, for example with FormData.
+
+11. How do useState, useMemo and useCallback differ?
+useState stores changing values. useMemo caches the result of a calculation
+until its dependencies change. useCallback caches a function reference, which
+can help when passing a callback to a memoized child.
+
+12. How would you handle an API request that takes 5–10 seconds?
+Show a loading indicator or skeleton immediately. Handle timeouts, errors and
+cancellation, and offer a retry when safe. Consider pagination for large
+responses or polling when the server exposes a background job’s status.
+
+13. What is a JavaScript Promise?
+A Promise represents the eventual result of an asynchronous operation. It
+starts pending and settles as either fulfilled with a value or rejected with
+a reason. You can handle it with await or with then and catch.
+
+14. Is JavaScript single-threaded?
+Browser JavaScript normally runs one call stack on the main thread. The
+browser can handle asynchronous operations separately, and the event loop
+schedules their callbacks. Web Workers can run JavaScript on separate threads.
+
+LIVE CODING
+
+15. Build a React search component for Raj, Amit and Kunal.
+Use a controlled input and derive the visible names from the query. Match
+case-insensitively and show “No results” when nothing matches.
+
+import { useState } from "react";
+
+const names = ["Raj", "Amit", "Kunal"];
+
+export default function NameSearch() {
+  const [search, setSearch] = useState("");
+  const query = search.trim().toLowerCase();
+  const matches = names.filter((name) => name.toLowerCase().includes(query));
+
+  return (
+    <div>
+      <label htmlFor="name-search">Search names</label>
+      <input
+        id="name-search"
+        type="search"
+        value={search}
+        onChange={(event) => setSearch(event.target.value)}
+      />
+      {matches.length > 0 ? (
+        <ul>
+          {matches.map((name) => <li key={name}>{name}</li>)}
+        </ul>
+      ) : (
+        <p>No results</p>
+      )}
+    </div>
+  );
+}
+
+An empty query shows all three names. “ra” shows Raj. “zz” shows No results.
+
+RECRUITER FOLLOW-UP
+
+16. How much hands-on .NET experience do you have?
+My clearest example is United Airlines. I migrated legacy .NET screens to
+React, integrated React screens with .NET services and worked with backend
+developers on troubleshooting and releases. The conversation mixed time on
+the project with hands-on .NET experience. Confirm the duration and scope
+before listing years of C#/.NET development.
+
+17. What cloud experience did you discuss?
+I discussed AWS, earlier GCP exposure, and CI/CD and deployment work at United
+Airlines. At First Citizens Bank, I mentioned the internal deployment platform
+and Jenkins. I did not give a clear number of hands-on AWS years on the call.
+
+18. Do you have React Native experience?
+My experience is with React for web applications. I haven’t developed native
+mobile apps with React Native.
+
+19. Can you work onsite in Irving, and are you available for interviews?
+I’m based in Austin and comfortable with three onsite days per week. Four
+days were undecided. My plan was to arrange temporary accommodation in Irving
+for about two months and then pursue relocation. I said I was available for
+a virtual interview the following week with at least one day’s notice.
+
+20. What work authorization and employer details did you share?
+I confirmed H-1B status and an approved I-140. I said I could discuss the
+rate and kept my employer arrangement private.
+
+ROLE AND NEXT STEPS
+
+- The recruiter described the role as roughly 80% frontend and 20% backend,
+  with React and JavaScript central to the role, C#/.NET on the backend, and
+  AWS preferred. The role also involves business stakeholders and offshore
+  collaboration.
+- The recruiter described two client rounds. Round 1 is about 30 minutes of
+  technical questions and 30 minutes of live coding. Round 2 is a technical
+  conversation with the director.
+- The recruiter asked for an updated resume to share with Raj, highlighting
+  React, TypeScript, JavaScript, cloud work and the specific .NET work at
+  United Airlines. Verify React tenure and cloud experience before adding
+  numbers.
